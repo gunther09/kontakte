@@ -1,0 +1,43 @@
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Telefonnummer</th>
+        <th>Mobilnummer</th>
+        <th>E-Mail</th>
+        <th>Firma</th>
+        <th>Job Titel</th>
+        <th>Land</th>
+    </tr>
+    <tr>
+        <td>{{ name }}</td>
+        <td>{{ phone }}</td>
+        <td>{{ mobile }}</td>
+        <td>{{ email }}</td>
+        <td>{{ company }}</td>
+        <td>{{ job_title }}</td>
+        <td>{{ country }}</td>
+    </tr>
+</table>
+
+<h2>CSV Ausgabe</h2>
+<pre>
+name,phone,mobile,email,company,job_title,country
+{{ name }},{{ phone }},{{ mobile }},{{ email }},{{ company }},{{ job_title }},{{ country }}
+</pre>
+
+<h2>JSON Ausgabe hurrah</h2>
+<pre>
+{
+    "name": "{{ name }}",
+    "phone": "{{ phone }}",
+    "mobile": "{{ mobile }}",
+    "email": "{{ email }}",
+    "company": "{{ company }}",
+    "job_title": "{{ job_title }}",
+    "country": "{{ country }}"
+}
+</pre>
+
+<button style="background-color: green; color: white; font-size: 20px; padding: 10px 20px; margin-top: 20px; border: none; cursor: pointer;">
+    In kontakte.spiritlink.de übernehmen
+</button>

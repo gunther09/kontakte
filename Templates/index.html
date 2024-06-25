@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakte Extrahieren</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kontaktdaten aus E-Mail Footer extrahieren</h1>
+    <form id="contactForm">
+        <label for="email_footer">Email Footer:</label><br>
+        <textarea id="email_footer" name="email_footer" rows="10" cols="50">Gunther Tutein
+            Geschäftsführer [Managing Director]
+            SPIRIT LINK
+            
+            E: guntheeeeeer.tutein@spiritlink.de
+            T: +49 (0) 9131 9 77 92-02
+            M: +49 (0) 172 8 20 45 67
+            Website // Blog // Facebook // LinkedIn
+            Spirit Link GmbH // Allee am Röthelheimpark 41 // 91052 Erlangen // Germany
+            Geschäftsführer: Markus Hanauer // Gunther Tutein // Heiko Pröger
+            Handelsregister Fürth // HRB 7533
+            </textarea><br><br>
+        <input type="submit" value="Extrahieren">
+    </form>
+    <div id="results"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#contactForm').on('submit', function(event) {
+                event.preventDefault(); // Verhindert das Standard-Formular-Submit-Verhalten
+                $.ajax({
+                    url: '/extract',
+                    method: 'POST',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#results').html(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

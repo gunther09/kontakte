@@ -19,7 +19,7 @@ if not api_key:
     print("Error: OPENAI_API_KEY environment variable not set.")
     sys.exit(1)
 
-print(f"DEBUG: OPENAI_API_KEY is set to: {api_key}")
+print(f"DEBUG: OPENAI_API_KEY is set to: XXXXXXXXXXXXXXXXXXX")
 
 from kontakt_to_openai import extract_contact_info
 

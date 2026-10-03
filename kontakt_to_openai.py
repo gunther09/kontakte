@@ -6,7 +6,6 @@ api_key = os.getenv('OPENAI_API_KEY')
 if not api_key:
     raise ValueError("The OPENAI_API_KEY environment variable is not set. Please set it in your .env file.")
 
-print(f"DEBUG: Initializing OpenAI client with API key: {api_key}")
 
 client = openai.OpenAI(api_key=api_key)
 
